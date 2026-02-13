@@ -1,0 +1,89 @@
+This doc lays out the limitations that are currently faced by the game project. The purpose of this project was to learn the basic data structures, and some libraries, ansi esc codes, and how to make all the elements work together and function as required.
+Future plans regarding this project have also been added.
+
+LIMITATIONS:
+
+1. Fixed number of objects:
+     This project uses fixed size arrays throughout, thereby limiting the maximum number of elements that can be present on the screen at a time:
+       Bullet bullets[50];
+       Alien aliens[20];
+       Bomb bombs[20];
+     Also, if all the slots are filled at an instant, no new aliens or bombs can spawn on the screen.
+     These fixed size arrays were used so as to avoid any complications caused due to dynamic memory allocations.
+
+2. Non modular code:
+     The complete code of this project is written in the main() fucntion. This reduces modularity of the code, and hence makes it pretty difficult to debug, especially if the number of features increase.
+
+3. Collision detection:
+     The algorithm used for collision detection is based on coordinate oriented, and not pixel specific, thereby making it feel a bit cheesy and inconsistent. The collision detection is not pixel accurate.
+     The talked about algo was used to make the code easier to read and debug, and to make the performance faster :)
+
+4. No sounds:
+     The game runs without any sounds, making it seem less indulging for the player. No immersive sounds, and no background sounds as this project aims towards building a terminal game in C without using any external libraries.
+
+5. Terminal dependency:
+     This project relies on ansi characters, and also uses 'termios' library, which is Unix specific, and hence THE GAME MIGHT NOT RUN EFFECTIVELY ON OLDER VERSIONS OF WINDOWS (working on Windows 11 CMD, as checked on 28/01/2026).
+     Also, the game window depends on the soze of the temrinal window - the whole game frame may not fit in the terminal window due to the size of the it.
+
+6. Data not saved:
+     The high score is not saved after every epoch. The game resets fully on restart.
+
+7. Basic enemy behaviour:
+     The aliens, boss alien, and the bombs behave too basic in terms of movements, and speed, making the game less competitive for the player, and he/she might lose interest after some time.
+     The movements of the aliens are a bit too predictable.
+   
+8. Frame rate control:
+     The game uses usleep() for controlling the frames per second while rendering, which may vary across machines, as usleep() does not account the time taken by the machine to process and render the frame, it just tells the machine how much time to wait before rendering the next frame to the screen.
+     This causes inconsistent fps of the game - slower machine => slower experience.
+     Using a delta time based engine fixes this problem.
+
+
+FUTURE PROSPECTS:
+
+1. Modular architecture:
+     Dividing the game into multiple files like:
+       player.c
+       alien.c
+       boss.c
+     and so on, would make the code much more modular, and hence easier to read, debug, and maintain.
+
+2. Dynamic mgmt of objects:
+     Using dynamic memory allocations, linked lists, and resizeable arrays would remove the limits on bullets, aliens, and bombs as such.
+
+3. Advanced collision systems:
+     Current collision detection detects based on coordinates, and is not pixel accurate. Using other algorithms like bounding box collisions, multi tile sprite collision, and damage zones may help overcome this limitation.
+
+4. Powerups and game experience enhancement:
+     Adding more powerups like shields, extra life drops; introducing more types of aliens; rapid fire mode; introducing some enemy brain, allowing them to behave accroding to the motion of the player would add a lot to the game, taking it to the next level.
+
+5. Score tracking:
+     Storing the high scores in an external file, and loading them at the start menu of the game. This would introduce the concept of file handling in C.
+
+6. Graphics library:
+     Using graphics libraries like SDL, Raylib, OpenGL among many others, would help improve the graphics of the game by a ton. Currently, the graphics are made manually using ascii characters.
+
+7. Cross platform support:
+     The game should be able to run effectively across platforms and UIs, thereby restricting the usage of UI-specific libraries (like 'termios' in this case).
+
+8. Sounds:
+     Introducing sound effects and some background sounds to the game would make it more loveable and engaging for the player.
+
+
+LONG TERM PLANS:
+
+This project can eveolve into:
+  A full 2D arcade shooter game
+  A modular C based mini game engine
+  A learning project showcasing low level rendering and file handling in C
+
+Currently, this project helps understand:
+  Game loops
+  Struct based object mgmt
+  Real time keyboard input
+  Terminal based rendering
+in C.
+
+
+
+
+Hope you enjoy this project :)
