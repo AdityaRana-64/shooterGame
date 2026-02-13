@@ -80,3 +80,9 @@ This document highlights the data structures used in the making of this game and
     (ii) No allocation failures - no possibilty of allocation failures, since our code does not ask for memory allocation while the game loop is running, unlike dynamic memory allocation, whihc may return NULL under certain circumtances
     (iii) Beginner friendly - no pointers and hence no unnecessary complications :)
     (iv) Performance - using fixed size arrays allows fast access to game elements, thereby decreasing lags and time taken by the game loop to run
+
+
+
+
+
+Hope you enjoy this project :)
