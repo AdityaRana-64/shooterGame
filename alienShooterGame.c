@@ -1,7 +1,11 @@
-//Alien Shooter Game
+//Author: Aditya Rana (MFSDSAI, 250150003)
+//Project: Alien Shooter Game
+
+
 //Made as a project to understand structs
 //This game runs on terminal using ASCII characters only
 //Controls: Arrow keys to move left/right; Spacebar to shoot; R to switch weapons; L to reload; Q to quit early
+
 
 #include <stdio.h>
 #include <stdlib.h>
